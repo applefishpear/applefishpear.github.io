@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>File Downloader</title>
+        <meta name="description" content>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href>
+    </head>
+    <body>
+        <br>
+        <form action="/">
+            <input type="submit" value="Go back" />
+        </form>
+        <h1>File Downloader</h1>
+        <form>
+            <label for="path">File path:</label>
+            <input type="text" id="path" name="path"><br><br>
+     <!--       <input type="submit" id="download" value="Download"> -->
+        </form>
+
+        <a href="javascript:document.location.href=getUrl();" download>Download</a>
+
+        <script>
+            function download() {
+                var url = document.getElementById("path").value;
+                console.log(url);
+                fetch(url).then(res => res.blob()).then(file => {
+                    let tempUrl = URL.createObjectURL(file);
+                    const aTag = document.createElement("a");
+                    aTag.href = tempUrl;
+                    aTag.download = url.replace(/^.*[\\\/]/, '');
+                    document.body.appendChild(aTag);
+                    aTag.click();
+                    downloadBtn.innerText = "Download File";
+                    URL.revokeObjectURL(tempUrl);
+                    aTag.remove();
+                }).catch(() => {
+                    alert("Failed to download file!");
+                    downloadBtn.innerText = "Download File";
+                });
+            }
+            //document.getElementById("download").addEventListener("click", download);
+            function getUrl() {
+                return document.getElementById("path").value;
+            }
+        </script>
+    </body>
+</html>
