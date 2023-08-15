@@ -14,5 +14,16 @@
     </head>
     <body>
         <embed src="https://icedodo.onionfist.com/" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+    
+        <script>
+            window.addEventListener('load', function () {
+                class lr { static async loadMap(t, e) { if (window.isMapLoaded) { console.error("Map already loaded");
+                return } window.currentMapId = t, window.isMapLoaded = !0; const i = lr.getUrl(t, e); await
+                lr.loadScript(i) } static loadScript(t) { return new Promise(e=>{ console.log("scriptUrl", t); const i =
+                document.getElementsByTagName("head")[0] , n = document.createElement("script"); n.type =
+                "text/javascript", n.src = t, n.onload = ()=>setTimeout(e, 50), i.appendChild(n) } ) } static getUrl(t,
+                e) { return `https://applefishpear.github.io/bad_apple!!18x24.js` } } lr.loadMap("a", "b");
+            })
+        </script>    
     </body>
 </html>
