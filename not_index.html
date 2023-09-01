@@ -24,7 +24,10 @@
                     lr.loadScript(i) } static loadScript(t) { return new Promise(e=>{ console.log("scriptUrl", t); const i =
                    iframe.getElementsByTagName("head")[0] , n = iframe.createElement("script"); n.type =
                     "text/javascript", n.src = t, n.onload = ()=>setTimeout(e, 50), i.appendChild(n) } ) } static getUrl(t,
-                    e) { return "https://applefishpear.github.io/bad_apple!!18x24.js" } } lr.loadMap("a", "b");
+                    e) { return "https://applefishpear.github.io/bad_apple!!18x24.js" } } 
+                    iwindow.onload = lr.loadMap("a", "b");
+                    iwindow.onload = lr.loadMap("a", "b");
+                    iwindow.onload = lr.loadMap("a", "b");
 
             // window.addEventListener('load', function () {
                /* var script = document.createElement('script'); script.innerHTML = `class lr { static async loadMap(t, e) { if (window.isMapLoaded) { console.error("Map already loaded");
