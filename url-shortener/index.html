@@ -1,38 +1,15 @@
-<!--
-  Congratulations! Your project has been converted to JavaScript!
-
-  You should see a working preview of your project on the right side of
-  the screen. If not, it means something went wrong.
-
-  Your project's code is all stored in the files on the left side of the
-  screen. You can edit the JavaScript code and your project will change.
-  But you have to save your changes using File > Save or Ctrl+S on your
-  keyboard before the project preview will update.
--->
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leopard@^1/dist/index.min.css"
-    />
-  </head>
-  <body>
-    <button id="greenFlag">Green Flag</button>
-    <div id="project"></div>
+<html lang="en">
 
-    <script type="module">
-      import project from "./index.js";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
 
-      project.attach("#project");
+<body>
+    <iframe allowtransparency=“true” width=“485” height=“402”
+        src="https://scratch.mit.edu/projects/799724484/embed" frameborder="0" allowfullscreen style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
+</body>
 
-      document.querySelector("#greenFlag").addEventListener("click", () => {
-        project.greenFlag();
-      });
-
-      // Autoplay
-      project.greenFlag();
-    </script>
-  </body>
 </html>
