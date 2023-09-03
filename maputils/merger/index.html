@@ -10,21 +10,50 @@
 
     <h2>REQUIREMENTS TO USE</h2>
     <ul>
-        <li>All URLs must be under the max limit.</li>
-        <li>Consecutive URLs must have the correct coordinates. e.g. if the first url ends at (0,0,-1000), the second URL should begin at (0,0, -1000) or slightly afterwards.</li>
+     <!--   <li>All URLs must be under the max limit.</li>-->  
+        <li>Consecutive mapfiles must have the absolute correct coordinates. e.g. if the first map ends at (0,0,-1000), the second map should begin at (0,0, -1000) or slightly afterwards. 
+            This should affect you if you split the map into 2 parts beginning at (0,0,0) so people can play through each part individually.
+        </li>
         <li>Endings in the 1st URL will be removed. If you have multiple endings in your level, please contact the developer on discord (or somebody else familiar with mapfiles) to add them back in.</li>
-        <li>URLs should begin with: <i>https://icedodo.onionfist.com/singleplayer?mapUrl=</i></li>
-        <li>If you need to combine more than two URLs, contact the developer on discord.</li>
+        <!--<li>URLs should begin with: <i>https://icedodo.onionfist.com/singleplayer?mapUrl=</i></li> -->
+        <li>If you need to combine more than two maps, combine the 1st and the 2nd map, then the 2nd and the 3rd map.</li>
+        <li>The code MUST have the correct amount of lines and line breaks at the right places. (This should automatically be correct if you follow the steps below correctly)</li>
+        <li>NULL characters may interfere with copying and pasting code. MAKE SURE the code is complete before you attempt to merge the maps.</li>
     </ul>
 
+    <h2>HOW TO GET MAP CODE</h2>
+    <ol>
+        <li>Open up your first map URL in your browser.</li>
+        <li>Press ctrl + shift + j (or other platform equivalents) to open up javascript console/developer tools.</li>
+        <li>Go to the sources tab at the top.</li>
+        <li>Find fn.onionfist.com on the left sidebar.</li>
+        <li>Expand the dropdown and find the file that starts with "singleplayer?mapUrl=".</li>
+        <li>Click on it to open it and on the right, there should be multi-lined code beginning with "var map = {"</li>
+        <li>Ctrl + f and type in "msg". This shows all occurences of a message in the code. If you see any red null characters at the end of messages, delete them.</li>
+        <li>Copy and paste all of the lines of code into the first textbox on this site without altering any lines.</li>
+        <li>Repeat for the second map and paste it into the second textbox.</li>
+    </ol>
+    OR
+    <ol>
+        <li>Get somebody with sufficient permissions to use p.mapfile on your first map URL.</li>
+        <li>Update your tinyURL to your second map. Use p.mapfile again.</li>
+    </ol>
+
     <form action="" id="urlForm">
-        <label for="url1">URL 1:</label><br>
-        <input type="text" id="url1" name="url1" style="width:100%"><br>
-        <label for="url2">URL 2:</label><br>
-        <input type="text" id="url2" name="url2" style="width:100%"><br><br>
+        <label for="url1">Map 1:</label><br>
+        <textarea type="text" id="url1" name="url1" style="width:100%;"></textarea><br>
+        <label for="url2">Map 2:</label><br>
+        <textarea type="text" id="url2" name="url2" style="width:100%;"></textarea><br><br>
         <input type="submit" value="Merge">
       </form>
 
+      <br><br>
+      Output:<br>
+      <textarea readonly id="output"></textarea>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-css.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-html.js"></script>
       <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
