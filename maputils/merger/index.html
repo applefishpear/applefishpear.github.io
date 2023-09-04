@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapfile merger</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        body {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/maputils">MapUtils</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/maputils">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="merger">Merger <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/applefishpear/applefishpear.github.io/wiki/Ice-Dodo-Mapmaking-Tricks">Wiki</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://pastebin.com/ipp0sUh1">Code</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
     <h1>Mapfile merger (for v8.1)</h1>
 
     <h2>REQUIREMENTS TO USE</h2>
@@ -33,27 +64,27 @@
         <li>Copy and paste all of the lines of code into the first textbox on this site without altering any lines.</li>
         <li>Repeat for the second map and paste it into the second textbox.</li>
     </ol>
-    OR
-    <ol>
+          <span>OR</span>
+    <p><ol>
         <li>Get somebody with sufficient permissions to use p.mapfile on your first map URL.</li>
         <li>Update your tinyURL to your second map. Use p.mapfile again.</li>
-    </ol>
+    </ol></p>
 
     <form action="" id="urlForm">
         <label for="url1">Map 1:</label><br>
         <textarea type="text" id="url1" name="url1" style="width:100%;"></textarea><br>
         <label for="url2">Map 2:</label><br>
-        <textarea type="text" id="url2" name="url2" style="width:100%;"></textarea><br><br>
+        <textarea type="text" id="url2" name="url2" style="width:100%;"></textarea><br>
         <input type="submit" value="Merge">
       </form>
-
-      <br><br>
-      Output:<br>
-      <textarea readonly id="output"></textarea>
+            <div>
+            <b>Output:</b><br>
+            <textarea readonly id="output" rows="10" cols="200"></textarea></div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-css.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.9/beautify-html.js"></script>
       <script src="index.js" type="text/javascript"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
