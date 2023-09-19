@@ -53,22 +53,27 @@
     </ul>
 
     <h2>HOW TO GET MAP CODE</h2>
-    <ol>
-        <li>Open up your first map URL in your browser.</li>
-        <li>Press ctrl + shift + j (or other platform equivalents) to open up javascript console/developer tools.</li>
-        <li>Go to the sources tab at the top.</li>
-        <li>Find fn.onionfist.com on the left sidebar.</li>
-        <li>Expand the dropdown and find the file that starts with "singleplayer?mapUrl=".</li>
-        <li>Click on it to open it and on the right, there should be multi-lined code beginning with "var map = {"</li>
-        <li>Ctrl + f and type in "msg". This shows all occurences of a message in the code. If you see any red null characters at the end of messages, delete them.</li>
-        <li>Copy and paste all of the lines of code into the first textbox on this site without altering any lines.</li>
-        <li>Repeat for the second map and paste it into the second textbox.</li>
-    </ol>
-          <span>OR</span>
+    <b>Recommended:</b>
     <p><ol>
-        <li>Get somebody with sufficient permissions to use p.mapfile on your first map URL.</li>
-        <li>Update your tinyURL to your second map. Use p.mapfile again.</li>
+      <li>Get somebody with sufficient permissions to use p.mapfile on your first map URL.</li>
+      <li>Copy and paste into the first textbox.</li>
+      <li>Update your tinyURL to your second map. Use p.mapfile again.</li>
+      <li>Copy and paste in the second textbox.</li>
+      <li>The output should be fully merged with the correct map title and mapmaker name.</li>
     </ol></p>
+          <span><b>OR</b></span><br><br>
+          <ol>
+            <li>Open up your first map URL in your browser.</li>
+            <li>Press ctrl + shift + j (or other platform equivalents) to open up javascript console/developer tools.</li>
+            <li>Go to the sources tab at the top.</li>
+            <li>Find fn.onionfist.com on the left sidebar.</li>
+            <li>Expand the dropdown and find the file that starts with "singleplayer?mapUrl=".</li>
+            <li>Click on it to open it and on the right, there should be multi-lined code beginning with "var map = {"</li>
+            <li>Ctrl + f and type in "msg". This shows all occurences of a message in the code. If you see any red null characters at the end of messages, delete them.</li>
+            <li>Copy and paste all of the lines of code into the first textbox on this site without altering any lines.</li>
+            <li>Repeat for the second map and paste it into the second textbox.</li>
+            <li>After you get the outputted map code, change lines 2 and 4 to the title of your level and your mapmaker name.</li>
+        </ol>
 
     <form action="" id="urlForm">
         <label for="url1">Map 1:</label><br>
