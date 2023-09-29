@@ -333,7 +333,7 @@ var map = {
         let PZ = player.position.z;
         switch (this.section_id) {
             case 0:
-                if (PZ < 0) {
+                if (PZ < 1) {
                     speed = default_speed * 0.0;
                     steer = default_steer * 0.0;
                     a.cam_cd(59.0);
