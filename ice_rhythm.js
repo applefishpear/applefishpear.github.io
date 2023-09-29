@@ -154,7 +154,7 @@ var map = {
         a.p([0, 0.5, -66.71], [0, 0, 0], [2, 0.4, 1], "ebc109", 0, 0, 0.6, false, false, true, false);
         a.p([-124, 0.5, 0], [0, 0, 0], [2, 0.4, 2], "ed18d1", 0, 0, 0.6, false, false, true, false);
         a.p([-69.82, 0.5, 0], [0, 0, 0], [2, 0.4, 2], "ed18d1", 0, 0, 0.6, false, false, true, false);
-        a.e([0, 0.5, -310]);
+        a.e([0, 0.5, -350.2]);
     },
     post: function () {
         a.u('E0');
@@ -498,7 +498,7 @@ var map = {
                 a.mov('P146', 'z', 2.0);
                 a.mov('P147', 'x', 2.0);
                 a.mov('P148', 'x', 2.0);
-                a.mov('P149', 'x', 2.0);
+                a.mov('P149', 'z', 2.0);
                 if (PZ < -2) {
                     speed = cc.get("speed", null);
                     steer = cc.get("steer", null);
