@@ -7,7 +7,6 @@ var map = {
         a.p([0, 0.82, 0], [0, 0, 0], [2, 2, 2], "000000,0.0", 0, 0, 0.6, true, true, false, false);
         a.p([0, -0.5, 0], [0, 0, 0], [1000, 1.6, 1000], "000000,0.99", 0, 0, 0.6, false, false, false, false);
         a.p([0, 1.3, -1.5], [0, -1.57, 0], [2, 0.4, 2], "ff0000", 0, 0, 0.6, false, false, false, false);
-
         a.p([0, 0.5, -40], [0, 0, 0], [2, 0.4, 2], "1175f0", 0, 0, 0.6, false, false, true, false);
         a.p([0, 0.5, -280], [0, 0, 0], [2, 0.4, 2], "1175f0", 0, 0, 0.6, false, false, true, false);
         a.p([0, 0.5, -100], [0, 0, 0], [2, 0.4, 2], "1175f0", 0, 0, 0.6, false, false, true, false);
@@ -153,12 +152,10 @@ var map = {
         a.p([0, 0.5, -66.71], [0, 0, 0], [2, 0.4, 1], "ebc109", 0, 0, 0.6, false, false, true, false);
         a.p([-112, 0.5, 0], [0, 0, 0], [2, 0.4, 2], "ed18d1", 0, 0, 0.6, false, false, true, false);
         a.p([-69.82, 0.5, 0], [0, 0, 0], [2, 0.4, 2], "ed18d1", 0, 0, 0.6, false, false, true, false);
-
         a.e([0, 0.5, -310]);
     },
     post: function () {
         a.u('E0');
-        a.u('P147');
         a.u('P3');
         a.u('P4');
         a.u('P5');
@@ -303,6 +300,7 @@ var map = {
         a.u('P144');
         a.u('P145');
         a.u('P146');
+        a.u('P147');
         cc.set_monkey("speed", 0);
         cc.set_monkey("steer", 0);
         cc.set_monkey("light.intensity", 0.5);
@@ -312,7 +310,7 @@ var map = {
     shield_state: false,
     last_switch: 0,
     section_update: function () {
-        if (controls.space && score > this.last_switch + 5) {
+        if (controls.space && score > this.last_switch + 10) {
             if (!this.shield_state) {
                 a.re('P2', [-1.5, 1.3,  0], [1.57, -1.57, 0], [2, 0.4, 2]);
                 controls.space = false;
@@ -350,7 +348,6 @@ var map = {
                 break;
             case 1:
                 a.mov('E0', 'z', 2.0);
-                a.mov('P147', 'z', 2.0);
                 a.mov('P3', 'z', 2.0);
                 a.mov('P4', 'z', 2.0);
                 a.mov('P5', 'z', 2.0);
@@ -495,6 +492,7 @@ var map = {
                 a.mov('P144', 'z', 2.0);
                 a.mov('P145', 'x', 2.0);
                 a.mov('P146', 'x', 2.0);
+                a.mov('P147', 'z', 2.0);
                 if (PZ < -2) {
                     speed = cc.get("speed", null);
                     steer = cc.get("steer", null);
@@ -513,7 +511,7 @@ var map = {
         a.re('E0', [0, 0.5, -310], [0, 0, 0], [1, 1, 1]);
         a.re('P0', [0, 0.82, 0], [0, 0, 0], [2, 2, 2]);
         a.re('P1', [0, -0.5, 0], [0, 0, 0], [1000, 1.6, 1000]);
-        a.re('P147', [0, 0.5, -40], [0, 0, 0], [2, 0.4, 2]);
+        a.re('P2', [0, 1.3, -1.5], [0, -1.57, 0], [2, 0.4, 2]);
         a.re('P3', [0, 0.5, -280], [0, 0, 0], [2, 0.4, 2]);
         a.re('P4', [0, 0.5, -100], [0, 0, 0], [2, 0.4, 2]);
         a.re('P5', [0, 0.5, -280], [0, 0, 0], [2, 0.4, 2]);
@@ -658,7 +656,7 @@ var map = {
         a.re('P144', [0, 0.5, -66.71], [0, 0, 0], [2, 0.4, 1]);
         a.re('P145', [-112, 0.5, 0], [0, 0, 0], [2, 0.4, 2]);
         a.re('P146', [-69.82, 0.5, 0], [0, 0, 0], [2, 0.4, 2]);
-        a.re('P2', [0, 1.3, -1.5], [0, -1.57, 0], [2, 0.4, 2]);
+        a.re('P147', [0, 0.5, -40], [0, 0, 0], [2, 0.4, 2]);
     },
     physics_update: function () {},
     render_update: function () {}
