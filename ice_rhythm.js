@@ -352,7 +352,6 @@ var map = {
                 break;
             case 1:
                 a.mov('E0', 'z', 2.0);
-                a.mov('P2', 'z', 2.0);
                 a.mov('P3', 'z', 2.0);
                 a.mov('P4', 'z', 2.0);
                 a.mov('P5', 'z', 2.0);
@@ -499,6 +498,7 @@ var map = {
                 a.mov('P146', 'z', 2.0);
                 a.mov('P147', 'x', 2.0);
                 a.mov('P148', 'x', 2.0);
+                a.mov('P149', 'x', 2.0);
                 if (PZ < -2) {
                     speed = cc.get("speed", null);
                     steer = cc.get("steer", null);
