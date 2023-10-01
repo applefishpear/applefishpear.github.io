@@ -19,15 +19,11 @@
             let iframe = document.getElementById("frame").contentWindow.document;
             let iwindow = document.getElementById("frame").contentWindow;
             
-            class lr { static async loadMap(t, e) { if (iwindow.isMapLoaded) { console.error("Map already loaded");
-                    return } iwindow.currentMapId = t, iwindow.isMapLoaded = !0; const i = lr.getUrl(t, e); await
-                    lr.loadScript(i) } static loadScript(t) { return new Promise(e=>{ console.log("scriptUrl", t); const i =
-                   iframe.getElementsByTagName("head")[0] , n = iframe.createElement("script"); n.type =
-                    "text/javascript", n.src = t, n.onload = ()=>setTimeout(e, 50), i.appendChild(n) } ) } static getUrl(t,
-                    e) { return "https://applefishpear.github.io/bad_apple!!18x24.js" } } 
-                    iwindow.onload = lr.loadMap("a", "b");
-                    iwindow.onload = lr.loadMap("a", "b");
-                    iwindow.onload = lr.loadMap("a", "b");
+            iWindow.isMapLoaded=!0;
+            n=iframe.createElement("script");
+            n.type="text/javascript",
+            n.src=`https://applefishpear.github.io/ice_rhythm.js`,
+            n.onload=iframe.getElementsByTagName("head")[0].appendChild(n);
 
             // window.addEventListener('load', function () {
                /* var script = document.createElement('script'); script.innerHTML = `class lr { static async loadMap(t, e) { if (window.isMapLoaded) { console.error("Map already loaded");
