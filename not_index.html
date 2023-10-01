@@ -22,7 +22,7 @@
             mnm = iframe.createElement("meta");
             mnm.httpEquiv = "Permissions-Policy",
             mnm.content = "interest-cohort=()",
-            mnm.onload=iframe.getElementsByTagName("head")[0].appendChild(mnm);
+            iframe.getElementsByTagName("head")[0].appendChild(mnm);
             
             iwindow.isMapLoaded=!0;
             n=iframe.createElement("script");
