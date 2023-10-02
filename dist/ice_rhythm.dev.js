@@ -357,7 +357,7 @@ var map = {
         break;
 
       case 1:
-        a.mov('E0', 'z', 1);
+        a.mov('E0', 'z', 1.2);
         a.mov('P3', 'z', -1.2);
         a.mov('P4', 'z', 1.2);
         a.mov('P5', 'z', 1.2);
