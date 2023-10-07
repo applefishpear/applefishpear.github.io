@@ -98,7 +98,7 @@ var map = {
     },
     post: function() {
         cc.set_monkey("steer", default_steer * 0.8);
-        cc.set_monkey("speed", 0.2);
+        cc.set_monkey("speed", );
         cc.set_monkey("camera.fov mul2", 1.2);
         cc.refresh();
     },
@@ -151,9 +151,14 @@ var map = {
 				}
 				break;
 			case 6:
+				if (PZ < -194) {
+					steer = default_steer * 1.0;
+					this.section_id += 1
+				}
+				break;
+			case 7:
 				if (PZ < -241.95) {
                     speed = 0.2;
-					steer = default_steer * 1.0;
 					this.section_id += 1
 				}
 				break;
