@@ -114,6 +114,7 @@ var map = {
     },
     section_id: 0,
 	skip_cam: false,
+    new_cam: false,
     section_update: function() {
         let PZ = player.position.z;
 		switch (this.section_id) {
@@ -169,6 +170,7 @@ var map = {
 			case 7:
 				if (PZ < -241.95) {
                     speed = 0.2;
+                    this.new_cam = true;
 					this.section_id += 1
 				}
 				break;
@@ -181,6 +183,7 @@ var map = {
         }
         this.section_id = 0;
 		this.skip_cam = false;
+        this.new_cam = false;
 		a.re('P0', [5.33007, -6.65993, -138.73993], [0, 0, 0], [1, 18, 50]);
         a.re('P1', [-5.32986, -6.65986, -138.73986], [0, 0, 0], [1, 18, 50]);
         a.re('P2', [4.37021, -8.58979, -76.84979], [0, 0, 0], [4.68, 2, 50]);
@@ -324,13 +327,19 @@ var map = {
 			this.player1.position.z = player.position.z;
 		}
 		camera.position.x = 0;
-		if (!this.skip_cam) {
-			camera.rotation.x = 40*Math.PI/180;
-		} else {
-			camera.rotation.x = 59*Math.PI/180;
-		}
-        camera.position.y = player.position.y + cam_vertical + 5;
-		camera.rotation.y = 3.14;
+        if (!this.new_cam) {
+            if (!this.skip_cam) {
+                camera.rotation.x = 40*Math.PI/180;
+            } else {
+                camera.rotation.x = 59*Math.PI/180;
+            }
+            camera.position.y = player.position.y + cam_vertical + 5;
+            camera.rotation.y = 3.14;
+        } else {
+            camera.rotation.x = 59*Math.PI/180;
+            camera.position.y = player.position.y + cam_vertical + 10;
+            camera.rotation.y = 3.14;
+        }
 	},
 	shouldSpin: function() {
 		if (speed === default_speed) return true;
