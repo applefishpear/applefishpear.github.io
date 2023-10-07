@@ -98,7 +98,7 @@ var map = {
     },
     post: function() {
         cc.set_monkey("steer", default_steer * 0.8);
-        cc.set_monkey("speed", );
+        cc.set_monkey("speed", default_speed);
         cc.set_monkey("camera.fov mul2", 1.2);
         cc.refresh();
     },
