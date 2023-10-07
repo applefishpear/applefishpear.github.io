@@ -309,6 +309,7 @@ var map = {
 		} else {
 			camera.rotation.x = 59*Math.PI/180;
 		}
+        camera.position.y = player.position.y + cam_vertical + 5;
 		camera.rotation.y = 3.14;
 	},
 	shouldSpin: function() {
