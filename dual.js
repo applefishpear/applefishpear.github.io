@@ -336,8 +336,8 @@ var map = {
             camera.position.y = player.position.y + cam_vertical + 5;
             camera.rotation.y = 3.14;
         } else {
-            camera.rotation.x = 59*Math.PI/180;
-            camera.position.y = player.position.y + cam_vertical + 10;
+            camera.rotation.x = 90*Math.PI/180;
+            camera.position.y = player.position.y + cam_vertical + 15;
             camera.rotation.y = 3.14;
         }
 	},
