@@ -226,7 +226,9 @@ var map = {
             for (let j=0;j<this.mini_dodos.length;j++) {
                 if (this.are_touching(this.mini_dodos[j], cones[i], 0.5)) {
                     cones[i].position.x = -200;
+                    cones[i].position.z = 200;
                     this.mini_dodos[j].position.x = 200;
+                    this.mini_dodos[j].position.z = 200;
                     this.kill_count += 1;
 
                     if (this.kill_count == 60) {
