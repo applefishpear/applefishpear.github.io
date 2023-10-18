@@ -104,12 +104,19 @@ var map = {
             case 2:
                 if (score > 180) {
                     a.msg_del();
-                    a.msg_set("Don't let the cones reach you!");
+                    a.msg_set("Cones take two shots to disappear.");
                     this.section_id += 1;
                 }
                 break;
             case 3:
                 if (score > 360) {
+                    a.msg_del();
+                    a.msg_set("Don't let the cones reach you!");
+                    this.section_id += 1;
+                }
+                break;
+            case 4:
+                if (score > 540) {
                     a.msg_del();
                     this.section_id += 1;
                 }
