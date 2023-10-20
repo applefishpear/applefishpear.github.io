@@ -4,16 +4,16 @@ var map = {
     maker: "applepear",
     spawn: [0, 0.5, 0],
     init: function () {
-        a.s([0.37007, 0.50007, -1298.91993], 21.74, "1a1a1a", 0, 0, 0.6, true, false);
-        a.s([0.37014, 0.50014, -1114.79986], 25.76, "2f6a69", 0, 0, 0.6, true, false);
-        a.s([0.37021, 6.60021, -367.64979], 79.04, "366896", 0, 0, 0.6, true, false);
-        a.s([0.37028, 6.60028, -540.82972], 83.96, "5580aa", 0, 0, 0.6, true, false);
-        a.s([0.37035, 0.50035, -1044.15965], 19.02, "993d00", 0, 0, 0.6, true, false);
-        a.s([0.37042, 6.80042, -938.68958], 123.62, "b07f35", 0, 0, 0.6, true, false);
-        a.s([0.37049, 6.05049, -747.11951], 69.3, "b08f36", 0, 0, 0.6, true, false);
-        a.s([0.37, 0.5, -1195.09], 45.9, "e6e6e6", 0, 0, 0.6, true, false);
-        a.s([-17.17993, 0.50007, -1612.04993], 406.8, "fdb813", 0, 0, 0.6, true, false);
-        a.s([0.37014, 0.50014, -200.74986], 24.42, "fff1d5", 0, 0, 0.6, true, false);
+        a.s([0.37007, 0.50007, -1298.91993], 21.74, "1a1a1a, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37014, 0.50014, -1114.79986], 25.76, "2f6a69, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37021, 6.60021, -367.64979], 79.04, "366896, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37028, 6.60028, -540.82972], 83.96, "5580aa, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37035, 0.50035, -1044.15965], 19.02, "993d00, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37042, 6.80042, -938.68958], 123.62, "b07f35, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37049, 6.05049, -747.11951], 69.3, "b08f36, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37, 0.5, -1195.09], 45.9, "e6e6e6, 0.99", 0, 0, 0.6, true, false);
+        a.s([-17.17993, 0.50007, -1612.04993], 406.8, "fdb813, 0.99", 0, 0, 0.6, true, false);
+        a.s([0.37014, 0.50014, -200.74986], 24.42, "fff1d5, 0.99", 0, 0, 0.6, true, false);
         a.s([0.37049, 6.05049, -747.11951], 1, -1, 0, 0, 0.6, true, false);
         
         a.p([-55.52972, 46.40028, -713.20972], [1.01, -1.22, -2.21], [0.7, 20.52, 37], "ffffff", 0, 0, 0.6, false, true, false, false);
@@ -205,6 +205,12 @@ var map = {
         a.c([0.18, 1.0899999999999999, -1573.72], true);
 
         a.e([0, 0.50042, -1612.04958]);
+
+        light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-17.17993, 0.50007, -1612.04993), scene);
+	    light1.intensity = 3.0;
+        light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(-17.17993, 0.50007, -1612.04993), scene);
+        light2.includedOnlyMeshes.push(a.m('S8'));
+	    light2.intensity = 50.0;
     },
     post: function () {
         a.u('S0');
@@ -265,8 +271,9 @@ var map = {
         a.m('P32').parent = a.m('S10');
         a.m('P33').parent = a.m('S10');
 
-        cc.set_monkey("cameraDownAngle", 0.0 * Math.PI / 180);
+        cc.set_monkey("cameraDownAngle", 5 * Math.PI / 180);
         cc.set_monkey("camera.maxZ", 5000.0);
+        cc.set_monkey("light.intensity", 0);
         cc.set_monkey("radius", 2.5);
         cc.set_monkey("camera.fov mul2", 1.0);
         cc.set_monkey("speed", default_speed * 2.0);
@@ -307,20 +314,20 @@ var map = {
             case 1:
                 camera.position.x = -17.1789;
 		        camera.position.z = -1612.05;
-                if (PZ < -500) {
+                if (score > 400) {
                     steer = default_steer;
                     cam_horizontal = this.ch;
                     cam_vertical = this.cv;
                     cam_depression = this.cd;
                     // cc.set_monkey("camera.fov mul2", 1);
                     // cc.refresh()
+                    a.msg_set("Go straight into the sun");
                     this.section_id += 1
                 }
                 break;
             case 2:
-                if (PZ < -1420) {
-                    cc.set_monkey("cameraDownAngle", 17 * Math.PI / 180);
-                    cc.refresh()
+                if (score > 600) {
+                    a.msg_del()
                     this.section_id += 1
                 }
                 break;
