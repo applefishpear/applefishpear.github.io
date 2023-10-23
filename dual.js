@@ -135,27 +135,24 @@ var map = {
 					this.player1.applyGravity = true;
 					this.player1.checkCollisions = true;
 
-                    cape_wings1 = new BABYLON.Mesh("custom", scene);
-
-                    var wings_vertexData = new BABYLON.VertexData();
-                    wings_vertexData.positions = [
-                        1,0,-1,
-                        3,0,0,
+                    cape_tail1 = new BABYLON.Mesh("custom", scene);
+		
+                    var tail_vertexData = new BABYLON.VertexData();
+                    tail_vertexData.positions = [
+                        -1,0,1,
+                        0,0,3,
                         1,0,1,
-                        -1,0,-1,
-                        -3,0,0,
-                        -1,0,1
                     ];
-                    wings_vertexData.indices = [0, 1, 2, 3, 4, 5];
-                    wings_vertexData.applyToMesh(cape_wings1);
+                    tail_vertexData.indices = [0, 1, 2];
+                    tail_vertexData.applyToMesh(cape_tail1);
 
-                    cape_wings1.material = decorations.rgba_mat(255,255,255,1);
+                    cape_tail1.material = decorations.rgba_mat(255,255,255,1);
 
-                    cape_wings1.scaling.x = 0.3;
-                    cape_wings1.scaling.y = 0.3;
-                    cape_wings1.scaling.z = 0.3;
-                    cape_wings1.isVisible = true;
-                    cape_wings1.parent = this.player1;
+                    cape_tail1.scaling.x = 0.3;
+                    cape_tail1.scaling.y = 0.3;
+                    cape_tail1.scaling.z = 0.3;
+                    cape_tail1.isVisible = true;
+                    cape_tail1.parent = this.player1;
 
 					this.section_id += 1;
 				}
