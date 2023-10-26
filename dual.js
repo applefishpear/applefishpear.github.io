@@ -1,10 +1,11 @@
+player1 = null;
 var map = {
     title: "Dual",
     song: "env2",
     maker: "applepear",
     spawn: [0, 0.5, 0],
-	player1: null,
     init: function() {
+        cleanup.run = this.run;
 		a.p([-5.32993, -6.65993, -138.73993], [0, 0, 0], [1, 18, 50], "000000,0.99", 0, 0, 1.0, false, false, false, false);
         a.p([4.37014, -1.58986, -129.84986], [0, 0, 0], [1.32, 0.64, 7.72], "000000,0.99", 0, 0, 1.0, false, false, false, false);
         a.p([4.37021, -2.58979, -139.84979], [0, 0, 0], [1.32, 0.64, 7.72], "000000,0.99", 0, 0, 1.0, false, false, false, false);
@@ -101,9 +102,9 @@ var map = {
         a.y([-2.53993, -0.71993, -238.19993], [0, 0, 0], [2, 2, 2], "80ff72", 0, 0, 0.6, false, 0.0, true);
         a.e([0.00014, -2.72986, -339.06986]);
 
-        if (this.player1 !== null) {
-            this.player1.dispose();
-			this.player1 = null;
+        if (player1 !== null) {
+            player1.dispose();
+			player1 = null;
         }
     },
     post: function() {
@@ -128,12 +129,12 @@ var map = {
 				break;
 			case 1:
 				if (PZ < -18) {
-					this.player1 = player.clone("player1");
+					player1 = player.clone("player1");
 					setTimeout(() => {
-						this.player1.physicsImpostor = new BABYLON.PhysicsImpostor(this.player1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1.0, restitution: 1.0, friction: 0.5}, scene);
+						player1.physicsImpostor = new BABYLON.PhysicsImpostor(player1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 1.0, restitution: 1.0, friction: 0.5}, scene);
 					}, 0);
-					this.player1.applyGravity = true;
-					this.player1.checkCollisions = true;
+					player1.applyGravity = true;
+					player1.checkCollisions = true;
 
                     cape_tail1 = new BABYLON.Mesh("custom", scene);
 		
@@ -152,7 +153,7 @@ var map = {
                     cape_tail1.scaling.y = 0.3;
                     cape_tail1.scaling.z = 0.3;
                     cape_tail1.isVisible = true;
-                    cape_tail1.parent = this.player1;
+                    cape_tail1.parent = player1;
 
 					this.section_id += 1;
 				}
@@ -199,9 +200,9 @@ var map = {
 		}
     },
     reset: function() {
-		if (this.player1 !== null) {
-            this.player1.dispose();
-			this.player1 = null;
+		if (player1 !== null) {
+            player1.dispose();
+			player1 = null;
         }
         this.section_id = 0;
 		this.skip_cam = false;
@@ -303,25 +304,25 @@ var map = {
         a.re('E0', [0.00014, -2.72986, -339.06986], [0, 0, 0], [1, 1, 1]);
     },
     physics_update: function() {
-		if (this.player1 !== null) {
+		if (player1 !== null) {
 			this.collision_check();
 		}
     },
     render_update: function() {
-		if (this.player1 !== null) {
+		if (player1 !== null) {
 			this.player_move();
 		}
     },
     collision_check: function() {
-		if (this.player1.position.y < -20) {change_state.die('Fell To Death')}
-		if (this.player1.position.y > 80) {change_state.die('Left The Orbit')}
+		if (player1.position.y < -20) {change_state.die('Fell To Death')}
+		if (player1.position.y > 80) {change_state.die('Left The Orbit')}
 		this.checkConeCollision()
 		this.checkEndingCollision()
 	},
 	checkConeCollision() {
 		for (let i=0;i<maker.cone_count;i++) {
 			let cone = cones[i];
-			if (this.are_touching(this.player1, cone, 0.5)) {
+			if (this.are_touching(player1, cone, 0.5)) {
 				change_state.die('Died From Cone');
 				break;
 			}
@@ -331,7 +332,7 @@ var map = {
 		if (score < 10) return
 		for (let i=0;i<maker.ending_count;i++) {
 			let ending = endings[i];
-			if (this.are_touching(this.player1, ending, 1.2)) { // previously 1.0
+			if (this.are_touching(player1, ending, 1.2)) { // previously 1.0
 				change_state.win();
 				break;
 			}
@@ -339,14 +340,14 @@ var map = {
 	},
 	player_move: function() {
 		if (!this.shouldSpin()) {
-			this.player1.physicsImpostor.setAngularVelocity(new BABYLON.Vector3(0,0,0));
-			this.player1.rotationQuaternion = BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(0,0,0),0);
+			player1.physicsImpostor.setAngularVelocity(new BABYLON.Vector3(0,0,0));
+			player1.rotationQuaternion = BABYLON.Quaternion.RotationAxis(new BABYLON.Vector3(0,0,0),0);
 		}
 
-		if (this.player1 !== null) {
-			this.player1.rotation.y = -player.rotation.y;
-			this.player1.position.x = -player.position.x;
-			this.player1.position.z = player.position.z;
+		if (player1 !== null) {
+			player1.rotation.y = -player.rotation.y;
+			player1.position.x = -player.position.x;
+			player1.position.z = player.position.z;
 		}
 		camera.position.x = 0;
         if (!this.new_cam) {
@@ -382,4 +383,56 @@ var map = {
 		}
 		return false;
 	},
+    run: function(full_reset=true) {
+		if (isMapLoaded == false) {
+			console.error("Map is not loaded");
+			return;
+		}
+		if (full_reset == true) {
+			currentMapId = null;
+			isMapLoaded = false;
+			map = {
+				render_update: function() {},
+				physics_update: function() {},
+				section_update: function() {}
+			}
+			cc.hard_reset();
+		}
+
+		for (let i=0;i<maker.ending_count;i++) {
+			let mesh_name = "E" + i;
+			let mesh = scene.getMeshByName(mesh_name);
+			mesh.dispose(true);
+		}
+		for (let i=0;i<maker.platform_count;i++) {
+			let mesh_name = "P" + i;
+			let mesh = scene.getMeshByName(mesh_name);
+			mesh.dispose(true);
+		}
+		for (let i=0;i<maker.cone_count;i++) {
+			let mesh_name = "C" + i;
+			let mesh = scene.getMeshByName(mesh_name);
+			mesh.dispose(true);
+		}
+		for (let i=0;i<maker.cylinder_count;i++) {
+			let mesh_name = "Y" + i;
+			let mesh = scene.getMeshByName(mesh_name);
+			mesh.dispose(true);
+		}
+		for (let i=0;i<maker.sphere_count;i++) {
+			let mesh_name = "S" + i;
+			let mesh = scene.getMeshByName(mesh_name);
+			mesh.dispose(true);
+		}
+        player1.dispose()
+		cones = [];
+		endings = [];
+		jumppads = [];
+		driftPads = [];
+		maker.platform_count = 0;
+		maker.cone_count = 0;
+		maker.cylinder_count = 0;
+		maker.sphere_count = 0;
+		maker.ending_count = 0;
+	}
 }
