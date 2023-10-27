@@ -4,8 +4,10 @@ var map = {
     maker: "applepear",
     spawn: [0, 0.5, 0],
     init: function () {
+        rememberskybox = settings.skyboxEnabled;
         settings.skyboxEnabled = "off";
         cleanup.run = this.run;
+
         a.s([0.37007, 0.50007, -1298.91993], 21.74, "1a1a1a, 0.99", 0, 0, 0.6, true, false);
         a.s([0.37014, 0.50014, -1114.79986], 25.76, "2f6a69, 0.99", 0, 0, 0.6, true, false);
         a.s([0.37021, 6.60021, -367.64979], 79.04, "366896, 0.99", 0, 0, 0.6, true, false);
@@ -359,6 +361,19 @@ var map = {
                     a.cam_d(radius);
                     a.msg_del()
                     a.msg_set("Crash into a planet to destroy it!")
+
+                    const skymat1 = new BABYLON.StandardMaterial("skyBox1", scene);
+                    skymat1.backFaceCulling = false;
+                    const texture1 = new BABYLON.Texture("assets/textures/skybox.jpg", scene);
+                    skymat1.reflectionTexture = texture1;
+                    skymat1.reflectionTexture.coordinatesMode = BABYLON.Texture.SPHERICAL_MODE;
+                    skymat1.disableLighting = true;
+                    skybox1 = BABYLON.Mesh.CreateBox("skyBox1", 5000, scene);
+                    skybox1.infiniteDistance = true;
+                    skybox1.material = skymat1;
+
+                    skymat1.freeze();
+
                     this.ss = score
                     this.section_id += 1
                 }
@@ -579,6 +594,8 @@ var map = {
 		}
         light1.dispose()
         light2.dispose()
+        skybox1.dispose();
+        settings.skyboxEnabled = rememberskybox;
         player.actionManager = null;
 		cones = [];
 		endings = [];
