@@ -342,7 +342,7 @@ var map = {
 		        camera.position.z = -1612.05;
                 if (score > 840) {
                     a.msg_del()
-                    a.msg_set("With every planet destroyed, the remaining orbit a little slower.");
+                    a.msg_set("With each planet destroyed, the remaining orbit a little slower.");
                     this.section_id += 1
                 }
                 break;
@@ -472,7 +472,11 @@ var map = {
 
         this.planet_count -= 1;
         if (this.planet_count != 0) {
-            a.msg_set(`${planet_name} down. ${map.planet_count} to go.`); // msg
+            if (planet_name != "Earth") {
+                a.msg_set(`${planet_name} down. ${map.planet_count} to go.`); // msg
+            } else {
+                a.msg_set(`Earth down. Who's the planet now? ${map.planet_count} to go.`);
+            }
         } else {
             a.msg_set(`${planet_name} down. You have wiped out every planet.`);
         }
