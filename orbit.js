@@ -1,5 +1,5 @@
 var map = {
-    title: "The Solar System",
+    title: "Orbit",
     song: "env2",
     maker: "applepear",
     spawn: [0, 0.5, 0],
