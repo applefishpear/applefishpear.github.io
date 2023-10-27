@@ -472,10 +472,12 @@ var map = {
 
         this.planet_count -= 1;
         if (this.planet_count != 0) {
-            if (planet_name != "Earth") {
-                a.msg_set(`${planet_name} down. ${map.planet_count} to go.`); // msg
-            } else {
+            if (planet_name == "Earth") {
                 a.msg_set(`Earth down. Who's the planet now? ${map.planet_count} to go.`);
+            } else if (planet_name == "Uranus") { 
+                a.msg_set(`Uranus down, it was never funny. ${map.planet_count} to go.`);
+            } else {
+                a.msg_set(`${planet_name} down. ${map.planet_count} to go.`); // msg
             }
         } else {
             a.msg_set(`${planet_name} down. You have wiped out every planet.`);
