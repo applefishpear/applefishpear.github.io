@@ -381,6 +381,20 @@ var map = {
                 }
                 if (score > this.ss+100) {
                     a.msg_del()
+                    a.msg_set("Be wary of the sun. While the planets are alive, it can kill you.")
+                    this.section_id += 1
+                }
+                break;
+            case 10:
+                if (controls.space) {
+                    speed = 20 * default_speed;
+                    steer = 0.5 * default_steer;
+                } else {
+                    speed = 10 * default_speed;
+                    steer = default_steer;
+                }
+                if (score > this.ss+240) {
+                    a.msg_del()
                     this.ss = Infinity
                     if (this.planet_count == 0) {
                         a.msg_set("Go into the sun.")
