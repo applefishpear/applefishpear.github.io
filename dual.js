@@ -113,6 +113,7 @@ var map = {
         cc.set_monkey("camera.fov mul2", 1.2);
         cc.set_monkey("scene.clearColor", new BABYLON.Color3.FromHexString("#808080"));
         cc.set_monkey("light.groundColor", new BABYLON.Color3.FromHexString("#ffffff"));
+        cc.set_monkey("light.specular", new BABYLON.Color3.FromHexString("#000000"));
         cc.refresh();
     },
     section_id: 0,
