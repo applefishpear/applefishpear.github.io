@@ -632,7 +632,7 @@ var map = {
 		        camera.position.z = -1612.05;
                 if (score > 840) {
                     a.msg_del()
-                    a.msg_set("With each planet destroyed, the remaining orbit a little slower.");
+                    a.msg_set("With each planet destroyed, the remaining will orbit a little slower.");
                     this.section_id += 1
                 }
                 break;
@@ -684,7 +684,7 @@ var map = {
                 }
                 if (score > this.ss+100) {
                     a.msg_del()
-                    a.msg_set("Be wary of the sun. While the planets are alive, it can kill you.")
+                    a.msg_set("Be wary of the asteroid belt and the Sun. The Sun will weaken with every planet destroyed.")
                     this.section_id += 1
                 }
                 break;
