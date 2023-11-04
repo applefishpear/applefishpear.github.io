@@ -2,7 +2,7 @@ player1 = null;
 var map = {
     title: "Dual",
     song: "env2",
-    maker: "applepear",
+    maker: "applepear and Bumpo",
     spawn: [0, 0, 0],
     init: function() {
         cleanup.run = this.run;
