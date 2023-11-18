@@ -617,6 +617,9 @@ var map = {
         try {
             light2.dispose()
         } catch { }
+        try {
+            cape_arrow.dispose()
+        } catch { }
 		cones = [];
 		endings = [];
 		jumppads = [];
