@@ -332,7 +332,7 @@ var map = {
         this.section_id = 0;
         // const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(110.99, 83.082, -155.37), scene);
         // const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(110.99, 83.082, -155.37), scene);
-        const light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(1, 0, 0), scene);
+        const light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-1, 0, 0), scene);
         a.re('P0', [30.12, 15.78, -106.01], [0, -4.71, 0], [0.16, 15.76, 0.22]);
         a.re('P1', [0, -18.35, -6.57], [0, 0, 0], [279.8, 31.14, 1487.96]);
         a.re('P2', [30.12, 7.37, -101.71], [0, -4.71, 0], [0.16, 7.48, 0.22]);
