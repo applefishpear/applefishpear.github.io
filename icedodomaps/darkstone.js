@@ -3,7 +3,7 @@ var map = {
     song: "env2",
     maker: "Ice dodo map maker",
     spawn: [0, 0.5, 0],
-    init: function() {
+    init: function() { 
         a.p([30.12, 15.78, -106.01], [0, -4.71, 0], [0.16, 15.76, 0.22], "2d2f39", 0, 0, 0.6, false, false, false, false);
         a.p([0, -18.35, -6.57], [0, 0, 0], [279.8, 31.14, 1487.96], "2d2f39", 0, 0, 0.6, false, false, false, false);
         a.p([30.12, 7.37, -101.71], [0, -4.71, 0], [0.16, 7.48, 0.22], "2d2f39", 0, 0, 0.6, false, false, false, false);
