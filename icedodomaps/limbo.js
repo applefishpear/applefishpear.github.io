@@ -2,7 +2,7 @@ var map = {
     title: "Test Map V8",
     song: "env2",
     maker: "Ice dodo map maker",
-    spawn: [0, 0.5, 0],
+    spawn: [8519.19, 0, -2496.244],
     init: function() {
         a.p([-0.28, -0.53, -22.89], [0.53, 0, 0], [0.96, 0.32, 8.42], "00000a", 0, 0, 0.6, false, true, false, false);
         a.p([-0.64, -0.53, -26.88], [-1.1, 0, 0], [1.06, 0.32, 4.32], "00000a", 0, 0, 0.6, false, true, false, false);
@@ -882,7 +882,7 @@ var map = {
             }
             break;
         case 22:
-            if (PZ > -1049.94) {
+            if (PZ > -1051) {
                 scene.clearColor = new BABYLON.Color3.FromHexString("#241a71");
                 scene.clearColor = cc.get("scene.clearColor", null);
 
