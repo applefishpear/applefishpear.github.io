@@ -882,7 +882,7 @@ var map = {
             }
             break;
         case 22:
-            if (PZ > -1051) {
+            if (PZ > -1035) {
                 scene.clearColor = new BABYLON.Color3.FromHexString("#241a71");
                 scene.clearColor = cc.get("scene.clearColor", null);
 
