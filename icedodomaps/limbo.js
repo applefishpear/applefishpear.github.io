@@ -878,6 +878,7 @@ var map = {
                 scene.clearColor = cc.get("scene.clearColor", null);
 
                 player.position = new BABYLON.Vector3(4504.9, 0, -1848.8);
+                rotation = 0 * Math.PI / 180;
 
                 this.section_id += 1
             }
