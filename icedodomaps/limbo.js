@@ -873,15 +873,6 @@ var map = {
             }
             break;
         case 21:
-            if (PZ < -1223.41) {
-                a.js(null);
-                a.jh(null);
-                speed = cc.get("speed", null);
-                scene.clearColor = cc.get("scene.clearColor", null);
-                this.section_id += 1
-            }
-            break;
-        case 22:
             if (PZ > -1052) {
                 scene.clearColor = new BABYLON.Color3.FromHexString("#241a71");
                 scene.clearColor = cc.get("scene.clearColor", null);
@@ -891,7 +882,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 23:
+        case 22:
             if (PZ < -1850.95) {
                 camera.maxZ = 70.0;
                 scene.clearColor = new BABYLON.Color3.FromHexString("#00000a");
@@ -900,7 +891,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 24:
+        case 23:
             a.mov('S10', 'x', -0.5);
             a.mov('S11', 'x', -0.5);
             a.mov('S12', 'x', -0.5);
@@ -933,7 +924,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 25:
+        case 24:
             if (PZ < -1894.3400000000001) {
                 camera.maxZ = 70.0;
                 scene.clearColor = new BABYLON.Color3.FromHexString("#00000a");
@@ -945,7 +936,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 26:
+        case 25:
             if (PZ < -1905.92) {
                 camera.maxZ = cc.get("camera.maxZ", null);
                 scene.clearColor = cc.get("scene.clearColor", null);
@@ -954,7 +945,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 27:
+        case 26:
             if (PZ < -2502.97993) {
                 speed = default_speed * 2.5;
                 scene.clearColor = new BABYLON.Color3.FromHexString("#800020");
@@ -962,7 +953,7 @@ var map = {
                 this.section_id += 1
             }
             break;
-        case 28:
+        case 27:
             if (PZ < -2866.05993) {
                 speed = cc.get("speed", null);
                 scene.clearColor = cc.get("scene.clearColor", null);
